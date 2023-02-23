@@ -1,6 +1,7 @@
 from django.db import models
 
 class Endpoint(models.Model):
+    id = models.AutoField(primary_key=True)
     '''
     The Endpoint object represents ML API endpoint.
     Attributes:
@@ -13,6 +14,7 @@ class Endpoint(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, blank=True)
 
 class MLAlgorithm(models.Model):
+    id = models.AutoField(primary_key=True)
     '''
     The MLAlgorithm represent the ML algorithm object.
     Attributes:
@@ -33,6 +35,7 @@ class MLAlgorithm(models.Model):
     parent_endpoint = models.ForeignKey(Endpoint, on_delete=models.CASCADE)
 
 class MLAlgorithmStatus(models.Model):
+    id = models.AutoField(primary_key=True)
     '''
     The MLAlgorithmStatus represent status of the MLAlgorithm which can change during the time.
     Attributes:
@@ -49,6 +52,7 @@ class MLAlgorithmStatus(models.Model):
     parent_mlalgorithm = models.ForeignKey(MLAlgorithm, on_delete=models.CASCADE, related_name = "status")
 
 class MLRequest(models.Model):
+    id = models.AutoField(primary_key=True)
     '''
     The MLRequest will keep information about all requests to ML algorithms.
     Attributes:
@@ -67,6 +71,7 @@ class MLRequest(models.Model):
 
 
 class ABTest(models.Model):
+    id = models.AutoField(primary_key=True)
     '''
     The ABTest will keep information about A/B tests.
     Attributes:
